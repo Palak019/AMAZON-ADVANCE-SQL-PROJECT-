@@ -16,3 +16,14 @@
 📌 3. Removing Duplicates
 
       Normalize Customers & Maintain Order Integrity
+
+## Handling Missing Values
+```sql
+ALTER TABLE shippings ADD COLUMN returned_status VARCHAR(30);
+
+UPDATE shippings 
+SET returned_status = CASE 
+    WHEN return_date IS NOT NULL THEN TO_CHAR(return_date, 'YYYY-MM-DD')  
+    ELSE 'Not Returned' 
+END;
+```
