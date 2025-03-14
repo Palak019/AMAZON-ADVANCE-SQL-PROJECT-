@@ -5,17 +5,17 @@
 ## DATA CLEANING
 📌 1. Handling Missing Values
 
-      Replace missing return_date in shipping.csv with "Not Returned".
+     • Replace missing return_date in shipping.csv with "Not Returned".
 
 📌 2. Removing Orphaned Data
 
-      Delete order_items where order_id does not exist in orders.
+     • Delete order_items where order_id does not exist in orders.
       
-      Delete orders where seller_id does not exist in sellers.
+     • Delete orders where seller_id does not exist in sellers.
       
 📌 3. Removing Duplicates
 
-      Normalize Customers & Maintain Order Integrity
+     • Normalize Customers & Maintain Order Integrity
 
 ## Handling Missing Values
 
@@ -31,17 +31,17 @@ END;
 
 ✅ Why?
 
-Ensures consistency in the shippings table by filling missing values
+• Ensures consistency in the shippings table by filling missing values
 
-Provides a clear return status for analysis and reporting.
+• Provides a clear return status for analysis and reporting.
 
-Prevents errors when querying returned_status.
+• Prevents errors when querying returned_status.
 
 ✅ What Do We Get?
 
-A column (returned_status) that clearly indicates if an item was returned or not.
+• A column (returned_status) that clearly indicates if an item was returned or not.
 
-Better data quality for dashboards and reports.
+• Better data quality for dashboards and reports.
 
 ## Removing Orphaned Data
 
@@ -55,17 +55,17 @@ WHERE seller_id NOT IN (SELECT seller_id FROM sellers);
 
 ✅ Why?
 
-Ensures referential integrity—every order must belong to a valid customer and seller.
+• Ensures referential integrity—every order must belong to a valid customer and seller.
 
-Prevents errors in joins and incorrect reports.
+• Prevents errors in joins and incorrect reports.
 
-Reduces unnecessary storage of invalid data.
+• Reduces unnecessary storage of invalid data.
 
 ✅ What Do We Get?
 
-A clean, reliable orders table without missing references.
+• A clean, reliable orders table without missing references.
 
-Ensures that all orders are linked to existing customers and sellers.
+• Ensures that all orders are linked to existing customers and sellers.
 
 ## Removing duplicate Data
 Reassign the orders to the lowest customer_id and then delete the duplicate customers:
@@ -101,15 +101,15 @@ WHERE customer_id IN (
 ```
 ✅ Why?
 
-Removes unnecessary duplicate customer records after reassigning orders.
+• Removes unnecessary duplicate customer records after reassigning orders.
 
-Ensures the database stays clean and optimized.
+• Ensures the database stays clean and optimized.
 
-Prevents duplicate customer entries from affecting customer analytics.
+• Prevents duplicate customer entries from affecting customer analytics.
 
 ✅ What Do We Get?
 
-A deduplicated customers table, improving performance and data reliability.
+• A deduplicated customers table, improving performance and data reliability.
 
-More accurate customer data for business insights and marketing analysis.
+• More accurate customer data for business insights and marketing analysis.
 
