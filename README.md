@@ -29,6 +29,17 @@ SET returned_status = CASE
 END;
 ```
 
+✅ Why?
+
+Ensures consistency in the shippings table by filling missing values.
+Provides a clear return status for analysis and reporting.
+Prevents errors when querying returned_status.
+
+✅ What Do We Get?
+
+A column (returned_status) that clearly indicates if an item was returned or not.
+Better data quality for dashboards and reports.
+
 ## Removing Orphaned Data
 
 ```sql
