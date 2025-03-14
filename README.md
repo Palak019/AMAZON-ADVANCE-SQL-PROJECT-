@@ -39,7 +39,7 @@ DELETE FROM orders
 WHERE seller_id NOT IN (SELECT seller_id FROM sellers);
 ```
 ## Removing duplicate Data
-  --reassign the orders to the lowest customer_id and then delete the duplicate customers:
+Reassign the orders to the lowest customer_id and then delete the duplicate customers:
   
 ```sql
 WITH duplicate_customers AS (
@@ -56,7 +56,8 @@ WHERE orders.customer_id = duplicate_customers.customer_id
 AND duplicate_customers.row_num > 1;
 ```
 
---After updating orders, delete the duplicate customers:
+After updating orders, delete the duplicate customers:
+
 ```sql
 WITH duplicate_customers AS (
     SELECT customer_id, 
