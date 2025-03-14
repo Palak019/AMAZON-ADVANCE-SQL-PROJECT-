@@ -1,6 +1,7 @@
 # "Amazon E-Commerce Data Optimization: Cleaning, Analysis & Insights"
 
-        ![](https://github.com/Palak019/AMAZON-ADVANCE-SQL-PROJECT-/blob/main/logo.png)
+
+![](https://github.com/Palak019/AMAZON-ADVANCE-SQL-PROJECT-/blob/main/logo.png)
 
 ## DATA CLEANING
 📌 1. Handling Missing Values
